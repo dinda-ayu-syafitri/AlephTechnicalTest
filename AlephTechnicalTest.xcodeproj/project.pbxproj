@@ -6,17 +6,20 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		2057EF7C2D3C06EF0031A0A5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2057EF762D3C06EF0031A0A5 /* Preview Assets.xcassets */; };
+		2057EF7D2D3C06EF0031A0A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2057EF792D3C06EF0031A0A5 /* Assets.xcassets */; };
+		2057EF7E2D3C06EF0031A0A5 /* AlephTechnicalTestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2057EF782D3C06EF0031A0A5 /* AlephTechnicalTestApp.swift */; };
+		2057EF832D3C07A10031A0A5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2057EF822D3C07A10031A0A5 /* HomeView.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		2057EF652D3AA5830031A0A5 /* AlephTechnicalTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlephTechnicalTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2057EF762D3C06EF0031A0A5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		2057EF782D3C06EF0031A0A5 /* AlephTechnicalTestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlephTechnicalTestApp.swift; sourceTree = "<group>"; };
+		2057EF792D3C06EF0031A0A5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2057EF822D3C07A10031A0A5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		2057EF672D3AA5830031A0A5 /* AlephTechnicalTest */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = AlephTechnicalTest;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		2057EF622D3AA5830031A0A5 /* Frameworks */ = {
@@ -32,7 +35,7 @@
 		2057EF5C2D3AA5830031A0A5 = {
 			isa = PBXGroup;
 			children = (
-				2057EF672D3AA5830031A0A5 /* AlephTechnicalTest */,
+				2057EF7B2D3C06EF0031A0A5 /* AlephTechnicalTest */,
 				2057EF662D3AA5830031A0A5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,6 +46,41 @@
 				2057EF652D3AA5830031A0A5 /* AlephTechnicalTest.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		2057EF772D3C06EF0031A0A5 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				2057EF762D3C06EF0031A0A5 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		2057EF7B2D3C06EF0031A0A5 /* AlephTechnicalTest */ = {
+			isa = PBXGroup;
+			children = (
+				2057EF802D3C06F30031A0A5 /* Presentation */,
+				2057EF772D3C06EF0031A0A5 /* Preview Content */,
+				2057EF782D3C06EF0031A0A5 /* AlephTechnicalTestApp.swift */,
+				2057EF792D3C06EF0031A0A5 /* Assets.xcassets */,
+			);
+			path = AlephTechnicalTest;
+			sourceTree = "<group>";
+		};
+		2057EF802D3C06F30031A0A5 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				2057EF812D3C07890031A0A5 /* Home */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		2057EF812D3C07890031A0A5 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				2057EF822D3C07A10031A0A5 /* HomeView.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -59,9 +97,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				2057EF672D3AA5830031A0A5 /* AlephTechnicalTest */,
 			);
 			name = AlephTechnicalTest;
 			packageProductDependencies = (
@@ -109,6 +144,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2057EF7C2D3C06EF0031A0A5 /* Preview Assets.xcassets in Resources */,
+				2057EF7D2D3C06EF0031A0A5 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +156,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2057EF832D3C07A10031A0A5 /* HomeView.swift in Sources */,
+				2057EF7E2D3C06EF0031A0A5 /* AlephTechnicalTestApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

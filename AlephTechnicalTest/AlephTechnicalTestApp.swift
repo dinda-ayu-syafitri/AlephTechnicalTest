@@ -11,7 +11,7 @@ import SwiftUI
 struct AlephTechnicalTestApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeView()
         }
     }
 }
