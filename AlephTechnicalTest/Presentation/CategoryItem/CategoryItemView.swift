@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CategoryItemView: View {
+    @StateObject var vm = DependencyInjection.shared.categoryItemViewModel()
     @Environment(\.dismiss) var dismiss
     @Binding var categoryId: Int?
 
@@ -15,9 +16,13 @@ struct CategoryItemView: View {
         NavigationView {
             ScrollView {
                 LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], alignment: .leading, spacing: 20) {
-                    ItemThumbnailView()
-                    ItemThumbnailView()
-                    ItemThumbnailView()
+                    if let items = vm.category?.items {
+                        ForEach(items, id: \.self) { item in
+                            ItemThumbnailView()
+                        }
+                    } else {
+                        Text("No Item")
+                    }
                 }
                 .padding(.horizontal, 20)
             }
@@ -39,6 +44,12 @@ struct CategoryItemView: View {
             }
         }
         .navigationBarBackButtonHidden()
+        .onAppear {
+            Task {
+                vm.categoryId = categoryId ?? 0
+                try await vm.getCategoryById()
+            }
+        }
     }
 }
 
