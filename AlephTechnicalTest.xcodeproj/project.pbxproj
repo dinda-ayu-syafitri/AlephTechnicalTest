@@ -22,6 +22,7 @@
 		20EE2C622D3CB7F8003B34E2 /* CategoriesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EE2C612D3CB7F8003B34E2 /* CategoriesRepository.swift */; };
 		20EE2C642D3CB80D003B34E2 /* CategoriesRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EE2C632D3CB80D003B34E2 /* CategoriesRepositoryProtocol.swift */; };
 		20EE2C672D3CBB30003B34E2 /* GetAllCategoriesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EE2C662D3CBB30003B34E2 /* GetAllCategoriesUseCase.swift */; };
+		20EE2C6B2D3CBCF7003B34E2 /* DependencyInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EE2C6A2D3CBCF7003B34E2 /* DependencyInjection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		20EE2C612D3CB7F8003B34E2 /* CategoriesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesRepository.swift; sourceTree = "<group>"; };
 		20EE2C632D3CB80D003B34E2 /* CategoriesRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesRepositoryProtocol.swift; sourceTree = "<group>"; };
 		20EE2C662D3CBB30003B34E2 /* GetAllCategoriesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllCategoriesUseCase.swift; sourceTree = "<group>"; };
+		20EE2C6A2D3CBCF7003B34E2 /* DependencyInjection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyInjection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 		2057EF7B2D3C06EF0031A0A5 /* AlephTechnicalTest */ = {
 			isa = PBXGroup;
 			children = (
+				20EE2C682D3CBCDC003B34E2 /* Common */,
 				20EE2C482D3C5378003B34E2 /* Domain */,
 				20EE2C472D3C530C003B34E2 /* Data */,
 				2057EF802D3C06F30031A0A5 /* Presentation */,
@@ -188,6 +191,22 @@
 			path = UseCases;
 			sourceTree = "<group>";
 		};
+		20EE2C682D3CBCDC003B34E2 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				20EE2C692D3CBCEA003B34E2 /* Utils */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		20EE2C692D3CBCEA003B34E2 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				20EE2C6A2D3CBCF7003B34E2 /* DependencyInjection.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -273,6 +292,7 @@
 				20EE2C5C2D3C5DA6003B34E2 /* CategoryMetadataModel.swift in Sources */,
 				20EE2C622D3CB7F8003B34E2 /* CategoriesRepository.swift in Sources */,
 				20EE2C572D3C55B4003B34E2 /* ItemModel.swift in Sources */,
+				20EE2C6B2D3CBCF7003B34E2 /* DependencyInjection.swift in Sources */,
 				20EE2C4C2D3C53A4003B34E2 /* APIResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
