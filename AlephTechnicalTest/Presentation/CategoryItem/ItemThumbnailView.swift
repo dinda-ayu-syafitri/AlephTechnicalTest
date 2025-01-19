@@ -21,7 +21,7 @@ struct ItemThumbnailView: View {
                 Color.red
             }
             .frame(maxWidth: .infinity)
-            .frame(height: 150)
+            .frame(height: 100)
             .clipShape(.rect(cornerRadius: 5))
             .padding(5)
 

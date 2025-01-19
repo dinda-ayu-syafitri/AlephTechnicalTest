@@ -13,19 +13,19 @@ struct CategoryItemView: View {
     @Binding var categoryId: Int?
 
     var body: some View {
-        NavigationView {
-            ScrollView {
-                LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], alignment: .leading, spacing: 20) {
-                    if let items = vm.category?.items {
-                        ForEach(items, id: \.self) { item in
+        ScrollView {
+            LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], alignment: .leading, spacing: 20) {
+                if let items = vm.category?.items {
+                    ForEach(items, id: \.self) { item in
+                        NavigationLink(destination: ItemDetailView(itemId: item.id), label: {
                             ItemThumbnailView(itemData: item)
-                        }
-                    } else {
-                        Text("No Item")
+                        })
                     }
+                } else {
+                    Text("No Item")
                 }
-                .padding(.horizontal, 20)
             }
+            .padding(.horizontal, 20)
         }
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
@@ -39,7 +39,7 @@ struct CategoryItemView: View {
 
             ToolbarItem(placement: .principal) {
                 Button(action: {}) {
-                    Text("Category \(categoryId ?? 0)")
+                    Text("\(vm.category?.name ?? "No Category")")
                 }
             }
         }

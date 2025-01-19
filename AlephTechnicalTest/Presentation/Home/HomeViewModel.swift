@@ -19,6 +19,7 @@ class HomeViewModel: ObservableObject {
 
     @MainActor
     func getAllCategories() async throws {
+        print("Getting all categories")
         do {
             let categoriesData = try await getAllCategoriesUseCase.execute()
             categories = categoriesData

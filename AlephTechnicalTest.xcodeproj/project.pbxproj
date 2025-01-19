@@ -28,6 +28,9 @@
 		20EE2C732D3CE0B3003B34E2 /* ItemThumbnailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EE2C722D3CE0B3003B34E2 /* ItemThumbnailView.swift */; };
 		20EE2C752D3CEAB5003B34E2 /* GetCategoryByIdUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EE2C742D3CEAB5003B34E2 /* GetCategoryByIdUseCase.swift */; };
 		20EE2C772D3CEC20003B34E2 /* CategoryItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EE2C762D3CEC20003B34E2 /* CategoryItemViewModel.swift */; };
+		20EE2C7C2D3CFD71003B34E2 /* ItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EE2C7B2D3CFD71003B34E2 /* ItemDetailView.swift */; };
+		20EE2C7E2D3D2C56003B34E2 /* GetItemByIdUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EE2C7D2D3D2C56003B34E2 /* GetItemByIdUseCase.swift */; };
+		20EE2C802D3D3EFA003B34E2 /* ItemDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EE2C7F2D3D3EFA003B34E2 /* ItemDetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +56,9 @@
 		20EE2C722D3CE0B3003B34E2 /* ItemThumbnailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemThumbnailView.swift; sourceTree = "<group>"; };
 		20EE2C742D3CEAB5003B34E2 /* GetCategoryByIdUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCategoryByIdUseCase.swift; sourceTree = "<group>"; };
 		20EE2C762D3CEC20003B34E2 /* CategoryItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItemViewModel.swift; sourceTree = "<group>"; };
+		20EE2C7B2D3CFD71003B34E2 /* ItemDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailView.swift; sourceTree = "<group>"; };
+		20EE2C7D2D3D2C56003B34E2 /* GetItemByIdUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetItemByIdUseCase.swift; sourceTree = "<group>"; };
+		20EE2C7F2D3D3EFA003B34E2 /* ItemDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +113,7 @@
 		2057EF802D3C06F30031A0A5 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				20EE2C7A2D3CFD52003B34E2 /* ItemDetail */,
 				20EE2C6E2D3CC607003B34E2 /* CategoryItem */,
 				2057EF812D3C07890031A0A5 /* Home */,
 			);
@@ -200,6 +207,7 @@
 			children = (
 				20EE2C662D3CBB30003B34E2 /* GetAllCategoriesUseCase.swift */,
 				20EE2C742D3CEAB5003B34E2 /* GetCategoryByIdUseCase.swift */,
+				20EE2C7D2D3D2C56003B34E2 /* GetItemByIdUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -228,6 +236,15 @@
 				20EE2C762D3CEC20003B34E2 /* CategoryItemViewModel.swift */,
 			);
 			path = CategoryItem;
+			sourceTree = "<group>";
+		};
+		20EE2C7A2D3CFD52003B34E2 /* ItemDetail */ = {
+			isa = PBXGroup;
+			children = (
+				20EE2C7B2D3CFD71003B34E2 /* ItemDetailView.swift */,
+				20EE2C7F2D3D3EFA003B34E2 /* ItemDetailViewModel.swift */,
+			);
+			path = ItemDetail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -303,6 +320,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20EE2C802D3D3EFA003B34E2 /* ItemDetailViewModel.swift in Sources */,
+				20EE2C7C2D3CFD71003B34E2 /* ItemDetailView.swift in Sources */,
 				20EE2C5E2D3C8A13003B34E2 /* CategoryResponseDataModel.swift in Sources */,
 				20EE2C642D3CB80D003B34E2 /* CategoriesRepositoryProtocol.swift in Sources */,
 				20EE2C512D3C548A003B34E2 /* CategoriesRemoteDataSource.swift in Sources */,
@@ -317,6 +336,7 @@
 				20EE2C772D3CEC20003B34E2 /* CategoryItemViewModel.swift in Sources */,
 				20EE2C5C2D3C5DA6003B34E2 /* CategoryMetadataModel.swift in Sources */,
 				20EE2C622D3CB7F8003B34E2 /* CategoriesRepository.swift in Sources */,
+				20EE2C7E2D3D2C56003B34E2 /* GetItemByIdUseCase.swift in Sources */,
 				20EE2C572D3C55B4003B34E2 /* ItemModel.swift in Sources */,
 				20EE2C752D3CEAB5003B34E2 /* GetCategoryByIdUseCase.swift in Sources */,
 				20EE2C6B2D3CBCF7003B34E2 /* DependencyInjection.swift in Sources */,

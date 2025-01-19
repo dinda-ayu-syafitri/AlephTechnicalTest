@@ -19,25 +19,31 @@ struct HomeView: View {
                     .multilineTextAlignment(.leading)
                     .frame(maxWidth: .infinity, alignment: .leading)
 
-                ForEach(vm.categories, id: \.self) { category in
-                    NavigationLink(destination: CategoryItemView(categoryId: $vm.selectedCategoryId), label: {
-                        VStack(alignment: .leading, spacing: 4) {
-                            Text("\(category.name)")
-                        }
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.horizontal, 20)
-                        .padding(.top, 60)
-                        .padding(.bottom, 20)
-                        .background(.gray)
-                        .foregroundStyle(.white)
-                        .clipShape(.rect(cornerRadius: 8))
-                        .simultaneousGesture(TapGesture().onEnded {
-                            vm.selectedCategoryId = category.id
+                ScrollView {
+                    ForEach(vm.categories, id: \.self) { category in
+                        NavigationLink(destination: CategoryItemView(categoryId: $vm.selectedCategoryId), label: {
+                            VStack(alignment: .leading, spacing: 4) {
+                                Text("\(category.name)")
+                            }
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(.horizontal, 20)
+                            .padding(.top, 60)
+                            .padding(.bottom, 20)
+                            .background(.gray)
+                            .foregroundStyle(.white)
+                            .clipShape(.rect(cornerRadius: 8))
+                            .simultaneousGesture(TapGesture().onEnded {
+                                vm.selectedCategoryId = category.id
+                            })
                         })
-                    })
+                    }
+                    Spacer()
                 }
-
-                Spacer()
+                .refreshable {
+                    Task {
+                        try await vm.getAllCategories()
+                    }
+                }
             }
             .padding(.top, 30)
             .padding(.horizontal, 20)

@@ -15,6 +15,7 @@ class DependencyInjection: ObservableObject {
 
     lazy var getAllCategoriesUseCase = GetAllCategoriesUseCaseImpl(categoriesRepository: categoriesRepository)
     lazy var getCategoryByIdUseCase = GetCategoryByIdUseCaseImpl(categoriesRepository: categoriesRepository)
+    lazy var getItemByIdUseCase = GetItemByIdUseCaseImpl(categoriesRepository: categoriesRepository)
 
     func homeViewModel() -> HomeViewModel {
         HomeViewModel(getAllCategoriesUseCase: getAllCategoriesUseCase)
@@ -22,5 +23,9 @@ class DependencyInjection: ObservableObject {
 
     func categoryItemViewModel() -> CategoryItemViewModel {
         CategoryItemViewModel(getCategoryByIdUseCase: getCategoryByIdUseCase)
+    }
+
+    func itemDetailViewModel() -> ItemDetailViewModel {
+        ItemDetailViewModel(getItemByIdUseCase: getItemByIdUseCase)
     }
 }
