@@ -18,7 +18,7 @@ struct CategoryItemView: View {
                 LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], alignment: .leading, spacing: 20) {
                     if let items = vm.category?.items {
                         ForEach(items, id: \.self) { item in
-                            ItemThumbnailView()
+                            ItemThumbnailView(itemData: item)
                         }
                     } else {
                         Text("No Item")

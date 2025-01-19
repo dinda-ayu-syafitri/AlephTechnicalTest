@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct ItemThumbnailView: View {
+    @State var itemData: Item?
+
     var body: some View {
         VStack {
-            AsyncImage(url: URL(string: "https://fastly.picsum.photos/id/717/200/300.jpg?hmac=OJYQhMLNcYlN5qz8IR345SJ7t6A0vyHzT_RdMxO4dSc")) { image in
+            AsyncImage(url: URL(string: "\(itemData?.image_url ?? "https://picsum.photos/id/237/200/300")")) { image in
                 image
                     .resizable()
                     .scaledToFill()
@@ -24,12 +26,12 @@ struct ItemThumbnailView: View {
             .padding(5)
 
             VStack(alignment: .leading) {
-                Text("Item 1")
+                Text("\(itemData?.title ?? "No Title")")
                     .font(.system(size: 15, weight: .bold))
                     .multilineTextAlignment(.leading)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.bottom, 5)
-                Text("This is the description")
+                Text("\(itemData?.description ?? "No Description")")
                     .font(.system(size: 12))
                     .multilineTextAlignment(.leading)
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -40,6 +42,7 @@ struct ItemThumbnailView: View {
         .background(.white)
         .clipShape(RoundedRectangle(cornerRadius: 10))
         .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.1), radius: 5)
+
     }
 }
 
