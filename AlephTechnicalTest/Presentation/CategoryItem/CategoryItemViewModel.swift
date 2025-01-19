@@ -23,7 +23,10 @@ class CategoryItemViewModel: ObservableObject {
         if searchKeyword.isEmpty {
             return items
         } else {
-            return items.filter { $0.title.localizedCaseInsensitiveContains(searchKeyword) }
+            return items.filter { item in
+                item.title.localizedCaseInsensitiveContains(searchKeyword) ||
+                item.details.tags.contains { $0.localizedCaseInsensitiveContains(searchKeyword) }
+            }
         }
     }
 
