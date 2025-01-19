@@ -16,9 +16,16 @@ class ItemDetailViewModel: ObservableObject {
 
     @Published var item: Item?
     @Published var itemId = 0
+    @Published var isLoading: Bool = false
 
     @MainActor
     func getItemById() async throws {
+        isLoading = true
+
+        defer {
+            isLoading = false
+        }
+
         do {
             let itemData = try await getItemByIdUseCase.execute(itemId: itemId)
             item = itemData

@@ -16,7 +16,9 @@ class CategoryItemViewModel: ObservableObject {
 
     @Published var category: Category?
     @Published var categoryId = 0
+    @Published var selectedItemId: Int?
     @Published var searchKeyword: String = ""
+    @Published var isLoading: Bool = false
 
     var filteredItems: [Item] {
         guard let items = category?.items else { return [] }
@@ -25,13 +27,18 @@ class CategoryItemViewModel: ObservableObject {
         } else {
             return items.filter { item in
                 item.title.localizedCaseInsensitiveContains(searchKeyword) ||
-                item.details.tags.contains { $0.localizedCaseInsensitiveContains(searchKeyword) }
+                    item.details.tags.contains { $0.localizedCaseInsensitiveContains(searchKeyword) }
             }
         }
     }
 
     @MainActor
     func getCategoryById() async throws {
+        isLoading = true
+
+        defer {
+            isLoading = false
+        }
         do {
             let categoryData = try await getCategoryByIdUseCase.execute(categoryId: categoryId)
             category = categoryData

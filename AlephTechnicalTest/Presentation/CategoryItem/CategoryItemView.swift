@@ -21,28 +21,40 @@ struct CategoryItemView: View {
                 Spacer()
             }
             .ignoresSafeArea()
-            ScrollView {
-                if !vm.filteredItems.isEmpty {
-                    LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], alignment: .leading, spacing: 20) {
-                        ForEach(vm.filteredItems, id: \.self) { item in
-                            NavigationLink(destination: ItemDetailView(itemId: item.id)) {
-                                ItemThumbnailView(itemData: item)
+
+            if vm.isLoading {
+                ZStack {
+                    Color.white.opacity(0.8)
+                        .ignoresSafeArea()
+                    LoadingIndicatorView()
+                }
+            } else {
+                ScrollView {
+                    if !vm.filteredItems.isEmpty {
+                        LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], alignment: .leading, spacing: 20) {
+                            ForEach(vm.filteredItems, id: \.self) { item in
+                                NavigationLink(destination: ItemDetailView(itemId: $vm.selectedItemId)) {
+                                    ItemThumbnailView(itemData: item)
+                                        .simultaneousGesture(TapGesture().onEnded {
+                                            vm.selectedItemId = item.id
+                                        })
+                                }
                             }
                         }
-                    }
-                    .padding(.horizontal, 20)
-                } else {
-                    VStack {
-                        Text("No Items Available")
-                            .font(.title2)
-                            .padding(.top, 50)
+                        .padding(.horizontal, 20)
+                    } else {
+                        VStack {
+                            Text("No Items Available")
+                                .font(.title2)
+                                .padding(.top, 50)
+                        }
                     }
                 }
-            }
-            .searchable(text: $vm.searchKeyword, placement: .navigationBarDrawer(displayMode: .always), prompt: "Search for items...")
-            .refreshable {
-                Task {
-                    try await vm.getCategoryById()
+                .searchable(text: $vm.searchKeyword, placement: .navigationBarDrawer(displayMode: .always), prompt: "Search for items...")
+                .refreshable {
+                    Task {
+                        try await vm.getCategoryById()
+                    }
                 }
             }
         }

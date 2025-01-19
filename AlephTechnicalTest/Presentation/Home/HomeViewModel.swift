@@ -16,9 +16,16 @@ class HomeViewModel: ObservableObject {
 
     @Published var categories: [Category] = []
     @Published var selectedCategoryId: Int?
+    @Published var isLoading: Bool = false
 
     @MainActor
     func getAllCategories() async throws {
+        isLoading = true
+
+        defer {
+            isLoading = false
+        }
+
         do {
             let categoriesData = try await getAllCategoriesUseCase.execute()
             categories = categoriesData

@@ -31,6 +31,7 @@
 		20EE2C7C2D3CFD71003B34E2 /* ItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EE2C7B2D3CFD71003B34E2 /* ItemDetailView.swift */; };
 		20EE2C7E2D3D2C56003B34E2 /* GetItemByIdUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EE2C7D2D3D2C56003B34E2 /* GetItemByIdUseCase.swift */; };
 		20EE2C802D3D3EFA003B34E2 /* ItemDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EE2C7F2D3D3EFA003B34E2 /* ItemDetailViewModel.swift */; };
+		20EE2C832D3D6975003B34E2 /* LoadingIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EE2C822D3D6975003B34E2 /* LoadingIndicatorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,7 @@
 		20EE2C7B2D3CFD71003B34E2 /* ItemDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailView.swift; sourceTree = "<group>"; };
 		20EE2C7D2D3D2C56003B34E2 /* GetItemByIdUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetItemByIdUseCase.swift; sourceTree = "<group>"; };
 		20EE2C7F2D3D3EFA003B34E2 /* ItemDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewModel.swift; sourceTree = "<group>"; };
+		20EE2C822D3D6975003B34E2 /* LoadingIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicatorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 		2057EF802D3C06F30031A0A5 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				20EE2C812D3D695F003B34E2 /* Component */,
 				20EE2C7A2D3CFD52003B34E2 /* ItemDetail */,
 				20EE2C6E2D3CC607003B34E2 /* CategoryItem */,
 				2057EF812D3C07890031A0A5 /* Home */,
@@ -247,6 +250,14 @@
 			path = ItemDetail;
 			sourceTree = "<group>";
 		};
+		20EE2C812D3D695F003B34E2 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				20EE2C822D3D6975003B34E2 /* LoadingIndicatorView.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -337,6 +348,7 @@
 				20EE2C5C2D3C5DA6003B34E2 /* CategoryMetadataModel.swift in Sources */,
 				20EE2C622D3CB7F8003B34E2 /* CategoriesRepository.swift in Sources */,
 				20EE2C7E2D3D2C56003B34E2 /* GetItemByIdUseCase.swift in Sources */,
+				20EE2C832D3D6975003B34E2 /* LoadingIndicatorView.swift in Sources */,
 				20EE2C572D3C55B4003B34E2 /* ItemModel.swift in Sources */,
 				20EE2C752D3CEAB5003B34E2 /* GetCategoryByIdUseCase.swift in Sources */,
 				20EE2C6B2D3CBCF7003B34E2 /* DependencyInjection.swift in Sources */,

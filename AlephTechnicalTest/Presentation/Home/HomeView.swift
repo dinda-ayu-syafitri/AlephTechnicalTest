@@ -29,33 +29,41 @@ struct HomeView: View {
                         .foregroundStyle(Color.accentBlue)
                         .padding(.horizontal, 20)
 
-                    ScrollView {
-                        ForEach(vm.categories, id: \.self) { category in
-                            NavigationLink(destination: CategoryItemView(categoryId: $vm.selectedCategoryId), label: {
-                                VStack(alignment: .leading, spacing: 4) {
-                                    Text("\(category.name)")
-                                        .font(.headline)
-                                }
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .padding(.horizontal, 20)
-                                .padding(.top, 60)
-                                .padding(.bottom, 20)
-                                .background(.customWhite)
-                                .foregroundStyle(.accentOrange)
-                                .clipShape(.rect(cornerRadius: 8))
-                                .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.1), radius: 5)
-                                .padding(.bottom, 20)
-                                .padding(.horizontal, 20)
-                                .simultaneousGesture(TapGesture().onEnded {
-                                    vm.selectedCategoryId = category.id
-                                })
-                            })
+                    if vm.isLoading {
+                        ZStack {
+                            Color.white.opacity(0.8)
+                                .ignoresSafeArea()
+                            LoadingIndicatorView()
                         }
-                        Spacer()
-                    }
-                    .refreshable {
-                        Task {
-                            try await vm.getAllCategories()
+                    } else {
+                        ScrollView {
+                            ForEach(vm.categories, id: \.self) { category in
+                                NavigationLink(destination: CategoryItemView(categoryId: $vm.selectedCategoryId), label: {
+                                    VStack(alignment: .leading, spacing: 4) {
+                                        Text("\(category.name)")
+                                            .font(.headline)
+                                    }
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .padding(.horizontal, 20)
+                                    .padding(.top, 60)
+                                    .padding(.bottom, 20)
+                                    .background(.customWhite)
+                                    .foregroundStyle(.accentOrange)
+                                    .clipShape(.rect(cornerRadius: 8))
+                                    .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.1), radius: 5)
+                                    .padding(.bottom, 20)
+                                    .padding(.horizontal, 20)
+                                    .simultaneousGesture(TapGesture().onEnded {
+                                        vm.selectedCategoryId = category.id
+                                    })
+                                })
+                            }
+                            Spacer()
+                        }
+                        .refreshable {
+                            Task {
+                                try await vm.getAllCategories()
+                            }
                         }
                     }
                 }
