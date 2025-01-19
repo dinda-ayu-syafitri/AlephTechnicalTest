@@ -19,6 +19,7 @@ class CategoryItemViewModel: ObservableObject {
 
     @MainActor
     func getCategoryById() async throws {
+        print("Getting category detail")
         do {
             let categoryData = try await getCategoryByIdUseCase.execute(categoryId: categoryId)
             category = categoryData

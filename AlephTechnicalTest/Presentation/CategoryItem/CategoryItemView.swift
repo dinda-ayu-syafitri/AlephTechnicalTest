@@ -27,6 +27,11 @@ struct CategoryItemView: View {
             }
             .padding(.horizontal, 20)
         }
+        .refreshable {
+            Task {
+                try await vm.getCategoryById()
+            }
+        }
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
                 Button(action: {
