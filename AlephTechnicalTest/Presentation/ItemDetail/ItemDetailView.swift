@@ -45,7 +45,8 @@ struct ItemDetailView: View {
                             Text("\(tag)")
                                 .padding(.horizontal, 20)
                                 .padding(.vertical, 10)
-                                .background(.gray)
+                                .background(.accentOrange)
+                                .foregroundStyle(.customWhite)
                                 .clipShape(.rect(cornerRadius: 5))
                         }
                     } else {
@@ -65,13 +66,18 @@ struct ItemDetailView: View {
                     dismiss()
                 }) {
                     Image(systemName: "chevron.left")
+                        .font(.title2)
                         .fontWeight(.semibold)
+                        .foregroundStyle(.accentBlue)
                 }
             }
 
             ToolbarItem(placement: .principal) {
                 Button(action: {}) {
                     Text("Item \(itemId ?? 0)")
+                        .font(.title2)
+                        .fontWeight(.semibold)
+                        .foregroundStyle(.accentBlue)
                 }
             }
         }

@@ -18,7 +18,7 @@ struct ItemThumbnailView: View {
                     .scaledToFill()
 
             } placeholder: {
-                Color.red
+                Color.gray
             }
             .frame(maxWidth: .infinity)
             .frame(height: 100)
@@ -27,12 +27,14 @@ struct ItemThumbnailView: View {
 
             VStack(alignment: .leading) {
                 Text("\(itemData?.title ?? "No Title")")
-                    .font(.system(size: 15, weight: .bold))
+                    .font(.headline)
+                    .foregroundStyle(.accentOrange)
                     .multilineTextAlignment(.leading)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.bottom, 5)
                 Text("\(itemData?.description ?? "No Description")")
-                    .font(.system(size: 12))
+                    .font(.subheadline)
+                    .foregroundStyle(.accentBlue)
                     .multilineTextAlignment(.leading)
                     .frame(maxWidth: .infinity, alignment: .leading)
             }
@@ -42,7 +44,6 @@ struct ItemThumbnailView: View {
         .background(.white)
         .clipShape(RoundedRectangle(cornerRadius: 10))
         .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.1), radius: 5)
-
     }
 }
 

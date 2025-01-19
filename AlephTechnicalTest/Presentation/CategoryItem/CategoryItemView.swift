@@ -13,28 +13,37 @@ struct CategoryItemView: View {
     @Binding var categoryId: Int?
 
     var body: some View {
-        ScrollView {
-            if !vm.filteredItems.isEmpty {
-                LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], alignment: .leading, spacing: 20) {
-                    ForEach(vm.filteredItems, id: \.self) { item in
-                        NavigationLink(destination: ItemDetailView(itemId: item.id)) {
-                            ItemThumbnailView(itemData: item)
+        ZStack {
+            VStack {
+                Image("categoryItem_bg")
+                    .resizable()
+                    .scaledToFit()
+                Spacer()
+            }
+            .ignoresSafeArea()
+            ScrollView {
+                if !vm.filteredItems.isEmpty {
+                    LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], alignment: .leading, spacing: 20) {
+                        ForEach(vm.filteredItems, id: \.self) { item in
+                            NavigationLink(destination: ItemDetailView(itemId: item.id)) {
+                                ItemThumbnailView(itemData: item)
+                            }
                         }
                     }
-                }
-                .padding(.horizontal, 20)
-            } else {
-                VStack {
-                    Text("No Items Available")
-                        .font(.title2)
-                        .padding(.top, 50)
+                    .padding(.horizontal, 20)
+                } else {
+                    VStack {
+                        Text("No Items Available")
+                            .font(.title2)
+                            .padding(.top, 50)
+                    }
                 }
             }
-        }
-        .searchable(text: $vm.searchKeyword, placement: .navigationBarDrawer(displayMode: .always), prompt: "Search for items...")
-        .refreshable {
-            Task {
-                try await vm.getCategoryById()
+            .searchable(text: $vm.searchKeyword, placement: .navigationBarDrawer(displayMode: .always), prompt: "Search for items...")
+            .refreshable {
+                Task {
+                    try await vm.getCategoryById()
+                }
             }
         }
         .toolbar {
@@ -43,13 +52,18 @@ struct CategoryItemView: View {
                     dismiss()
                 }) {
                     Image(systemName: "chevron.left")
+                        .font(.title2)
                         .fontWeight(.semibold)
+                        .foregroundStyle(.accentBlue)
                 }
             }
 
             ToolbarItem(placement: .principal) {
                 Button(action: {}) {
                     Text("\(vm.category?.name ?? "No Category")")
+                        .font(.title2)
+                        .fontWeight(.semibold)
+                        .foregroundStyle(.accentBlue)
                 }
             }
         }
