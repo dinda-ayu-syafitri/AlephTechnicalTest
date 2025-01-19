@@ -16,10 +16,19 @@ class CategoryItemViewModel: ObservableObject {
 
     @Published var category: Category?
     @Published var categoryId = 0
+    @Published var searchKeyword: String = ""
+
+    var filteredItems: [Item] {
+        guard let items = category?.items else { return [] }
+        if searchKeyword.isEmpty {
+            return items
+        } else {
+            return items.filter { $0.title.localizedCaseInsensitiveContains(searchKeyword) }
+        }
+    }
 
     @MainActor
     func getCategoryById() async throws {
-        print("Getting category detail")
         do {
             let categoryData = try await getCategoryByIdUseCase.execute(categoryId: categoryId)
             category = categoryData

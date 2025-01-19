@@ -14,19 +14,24 @@ struct CategoryItemView: View {
 
     var body: some View {
         ScrollView {
-            LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], alignment: .leading, spacing: 20) {
-                if let items = vm.category?.items {
-                    ForEach(items, id: \.self) { item in
-                        NavigationLink(destination: ItemDetailView(itemId: item.id), label: {
+            if !vm.filteredItems.isEmpty {
+                LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], alignment: .leading, spacing: 20) {
+                    ForEach(vm.filteredItems, id: \.self) { item in
+                        NavigationLink(destination: ItemDetailView(itemId: item.id)) {
                             ItemThumbnailView(itemData: item)
-                        })
+                        }
                     }
-                } else {
-                    Text("No Item")
+                }
+                .padding(.horizontal, 20)
+            } else {
+                VStack {
+                    Text("No Items Available")
+                        .font(.title2)
+                        .padding(.top, 50)
                 }
             }
-            .padding(.horizontal, 20)
         }
+        .searchable(text: $vm.searchKeyword, placement: .navigationBarDrawer(displayMode: .always), prompt: "Search for items...")
         .refreshable {
             Task {
                 try await vm.getCategoryById()
