@@ -19,6 +19,8 @@
 		20EE2C5A2D3C5722003B34E2 /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EE2C592D3C5722003B34E2 /* NetworkingError.swift */; };
 		20EE2C5C2D3C5DA6003B34E2 /* CategoryMetadataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EE2C5B2D3C5DA6003B34E2 /* CategoryMetadataModel.swift */; };
 		20EE2C5E2D3C8A13003B34E2 /* CategoryResponseDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EE2C5D2D3C8A13003B34E2 /* CategoryResponseDataModel.swift */; };
+		20EE2C622D3CB7F8003B34E2 /* CategoriesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EE2C612D3CB7F8003B34E2 /* CategoriesRepository.swift */; };
+		20EE2C642D3CB80D003B34E2 /* CategoriesRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EE2C632D3CB80D003B34E2 /* CategoriesRepositoryProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,8 @@
 		20EE2C592D3C5722003B34E2 /* NetworkingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
 		20EE2C5B2D3C5DA6003B34E2 /* CategoryMetadataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryMetadataModel.swift; sourceTree = "<group>"; };
 		20EE2C5D2D3C8A13003B34E2 /* CategoryResponseDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryResponseDataModel.swift; sourceTree = "<group>"; };
+		20EE2C612D3CB7F8003B34E2 /* CategoriesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesRepository.swift; sourceTree = "<group>"; };
+		20EE2C632D3CB80D003B34E2 /* CategoriesRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesRepositoryProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +108,7 @@
 		20EE2C472D3C530C003B34E2 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				20EE2C602D3CB7D6003B34E2 /* Repository */,
 				20EE2C4E2D3C543D003B34E2 /* DataSource */,
 			);
 			path = Data;
@@ -161,6 +166,15 @@
 				20EE2C592D3C5722003B34E2 /* NetworkingError.swift */,
 			);
 			path = Enum;
+			sourceTree = "<group>";
+		};
+		20EE2C602D3CB7D6003B34E2 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				20EE2C612D3CB7F8003B34E2 /* CategoriesRepository.swift */,
+				20EE2C632D3CB80D003B34E2 /* CategoriesRepositoryProtocol.swift */,
+			);
+			path = Repository;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,6 +251,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				20EE2C5E2D3C8A13003B34E2 /* CategoryResponseDataModel.swift in Sources */,
+				20EE2C642D3CB80D003B34E2 /* CategoriesRepositoryProtocol.swift in Sources */,
 				20EE2C512D3C548A003B34E2 /* CategoriesRemoteDataSource.swift in Sources */,
 				20EE2C552D3C5546003B34E2 /* CategoryModel.swift in Sources */,
 				20EE2C5A2D3C5722003B34E2 /* NetworkingError.swift in Sources */,
@@ -244,6 +259,7 @@
 				2057EF832D3C07A10031A0A5 /* HomeView.swift in Sources */,
 				2057EF7E2D3C06EF0031A0A5 /* AlephTechnicalTestApp.swift in Sources */,
 				20EE2C5C2D3C5DA6003B34E2 /* CategoryMetadataModel.swift in Sources */,
+				20EE2C622D3CB7F8003B34E2 /* CategoriesRepository.swift in Sources */,
 				20EE2C572D3C55B4003B34E2 /* ItemModel.swift in Sources */,
 				20EE2C4C2D3C53A4003B34E2 /* APIResponse.swift in Sources */,
 			);
