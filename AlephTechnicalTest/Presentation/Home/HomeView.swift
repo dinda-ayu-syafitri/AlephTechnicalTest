@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
+    var dataSource = CategoriesRemoteDataSource()
     var body: some View {
         VStack(alignment: .leading, spacing: 30) {
             Text("Categories")
@@ -30,6 +31,11 @@ struct HomeView: View {
         }
         .padding(.top, 30)
         .padding(.horizontal, 20)
+        .onAppear {
+            Task {
+                try await dataSource.getAllCategories()
+            }
+        }
     }
 }
 
