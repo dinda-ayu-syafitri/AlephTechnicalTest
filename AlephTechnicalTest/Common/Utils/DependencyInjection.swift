@@ -14,4 +14,8 @@ class DependencyInjection: ObservableObject {
     lazy var categoriesRepository = CategoriesRepository(categoryRemoteDataSource: categoriesRemoteDataSource)
 
     lazy var getAllCategoriesUseCase = GetAllCategoriesUseCaseImpl(categoriesRepository: categoriesRepository)
+
+    func homeViewModel() -> HomeViewModel {
+        HomeViewModel(getAllCategoriesUseCase: getAllCategoriesUseCase)
+    }
 }

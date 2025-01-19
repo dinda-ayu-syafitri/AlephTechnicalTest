@@ -8,32 +8,43 @@
 import SwiftUI
 
 struct HomeView: View {
-    var dataSource = CategoriesRemoteDataSource()
+    @StateObject var vm = DependencyInjection.shared.homeViewModel()
+
     var body: some View {
-        VStack(alignment: .leading, spacing: 30) {
-            Text("Categories")
-                .font(.title)
-                .fontWeight(.bold)
-                .multilineTextAlignment(.leading)
-                .frame(maxWidth: .infinity, alignment: .leading)
+        NavigationView {
+            VStack(alignment: .leading, spacing: 30) {
+                Text("Categories")
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .multilineTextAlignment(.leading)
+                    .frame(maxWidth: .infinity, alignment: .leading)
 
-            VStack(alignment: .leading, spacing: 4) {
-                Text("Category 1")
+                ForEach(vm.categories, id: \.self) { category in
+                    NavigationLink(destination: CategoryItemView(categoryId: $vm.selectedCategoryId), label: {
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text("\(category.name)")
+                        }
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.horizontal, 20)
+                        .padding(.top, 60)
+                        .padding(.bottom, 20)
+                        .background(.gray)
+                        .foregroundStyle(.white)
+                        .clipShape(.rect(cornerRadius: 8))
+                        .simultaneousGesture(TapGesture().onEnded {
+                            vm.selectedCategoryId = category.id
+                        })
+                    })
+                }
+
+                Spacer()
             }
-            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.top, 30)
             .padding(.horizontal, 20)
-            .padding(.top, 60)
-            .padding(.bottom, 20)
-            .background(.gray)
-            .clipShape(.rect(cornerRadius: 8))
-
-            Spacer()
-        }
-        .padding(.top, 30)
-        .padding(.horizontal, 20)
-        .onAppear {
-            Task {
-                try await dataSource.getAllCategories()
+            .onAppear {
+                Task {
+                    try await vm.getAllCategories()
+                }
             }
         }
     }

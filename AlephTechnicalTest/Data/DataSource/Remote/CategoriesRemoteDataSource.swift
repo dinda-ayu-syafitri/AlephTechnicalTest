@@ -20,7 +20,6 @@ class CategoriesRemoteDataSource: CategoriesRemoteDataSourceProtocol {
         }
 
         do {
-            let jsonString = String(data: value, encoding: .utf8)
             let decoder = JSONDecoder()
             let apiResponse = try decoder.decode(APIResponse<CategoryResponseDataModel, CategoryMetadata>.self, from: value)
             return apiResponse.data.categories
