@@ -62,7 +62,7 @@ struct HomeView: View {
                         }
                         .refreshable {
                             Task {
-                                try await vm.getAllCategories()
+                                await vm.getAllCategories()
                             }
                         }
                     }
@@ -70,8 +70,15 @@ struct HomeView: View {
                 .padding(.top, 30)
                 .onAppear {
                     Task {
-                        try await vm.getAllCategories()
+                        await vm.getAllCategories()
                     }
+                }
+                .alert(isPresented: $vm.showError) {
+                    Alert(
+                        title: Text("Error"),
+                        message: Text(vm.errorMessage ?? "Unknown error"),
+                        dismissButton: .default(Text("OK"))
+                    )
                 }
             }
         }

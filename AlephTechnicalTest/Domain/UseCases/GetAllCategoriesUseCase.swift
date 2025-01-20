@@ -19,8 +19,10 @@ class GetAllCategoriesUseCaseImpl: GetAllCategoriesUseCase {
     }
 
     func execute() async throws -> [Category] {
-        let categories = try await categoriesRepository.getAllCategories()
-
-        return categories
+        do {
+            return try await categoriesRepository.getAllCategories()
+        } catch {
+            throw error
+        }
     }
 }

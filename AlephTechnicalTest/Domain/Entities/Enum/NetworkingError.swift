@@ -12,4 +12,5 @@ enum networkingError: Error {
     case invalidResponse
     case invalidData
     case noData
+    case networkFailure(Error)
 }

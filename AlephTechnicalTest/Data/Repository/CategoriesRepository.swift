@@ -15,9 +15,10 @@ class CategoriesRepository: CategoriesRepositoryProtocol {
     }
 
     func getAllCategories() async throws -> [Category] {
-        let categoriesRemoteData = try await categoryRemoteDataSource.getAllCategories()
-        return categoriesRemoteData
+        do {
+            return try await categoryRemoteDataSource.getAllCategories()
+        } catch let error as networkingError {
+            throw error
+        }
     }
-    
-
 }
