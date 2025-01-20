@@ -13,6 +13,7 @@ This iOS app fetches and displays data from a complex JSON structure, showcasing
   - Pull-to-refresh functionality.
   - Search functionality to filter items by title or tags.
   - Loading indicators during data fetching.
+  - Error handling
 
 ## Installation Instructions
 1. **Clone the Repository**:
