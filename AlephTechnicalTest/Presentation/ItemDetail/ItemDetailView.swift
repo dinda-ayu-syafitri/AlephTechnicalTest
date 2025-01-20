@@ -45,6 +45,10 @@ struct ItemDetailView: View {
                             Text("\(vm.item?.details.author ?? "No Author Item")")
                                 .multilineTextAlignment(.leading)
                                 .frame(maxWidth: .infinity, alignment: .leading)
+
+                            Text("\(vm.item?.details.published_date ?? "No Author Item")")
+                                .multilineTextAlignment(.leading)
+                                .frame(maxWidth: .infinity, alignment: .leading)
                         }
 
                         LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())], alignment: .leading, spacing: 20) {
