@@ -86,6 +86,13 @@ struct CategoryItemView: View {
                 try await vm.getCategoryById()
             }
         }
+        .alert(isPresented: $vm.showError) {
+            Alert(
+                title: Text("Error"),
+                message: Text(vm.errorMessage ?? "Unknown error"),
+                dismissButton: .default(Text("OK"))
+            )
+        }
     }
 }
 

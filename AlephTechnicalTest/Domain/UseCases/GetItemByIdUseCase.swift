@@ -19,15 +19,19 @@ class GetItemByIdUseCaseImpl: GetItemByIdUseCase {
     }
 
     func execute(itemId: Int) async throws -> Item {
-        let categories = try await categoriesRepository.getAllCategories()
+        do {
+            let categories = try await categoriesRepository.getAllCategories()
 
-        for category in categories {
-            if let item = category.items.first(where: { $0.id == itemId }) {
-                return item
+            for category in categories {
+                if let item = category.items.first(where: { $0.id == itemId }) {
+                    return item
+                }
             }
-        }
 
-        throw NSError(domain: "GetItemByIdUseCaseError", code: 404, userInfo: [NSLocalizedDescriptionKey: "Item not found"])
+            throw NSError(domain: "GetItemByIdUseCaseError", code: 404, userInfo: [NSLocalizedDescriptionKey: "Item not found"])
+
+        } catch {
+            throw error
+        }
     }
 }
-

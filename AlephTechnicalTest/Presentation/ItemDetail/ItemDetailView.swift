@@ -98,6 +98,13 @@ struct ItemDetailView: View {
                 try await vm.getItemById()
             }
         }
+        .alert(isPresented: $vm.showError) {
+            Alert(
+                title: Text("Error"),
+                message: Text(vm.errorMessage ?? "Unknown error"),
+                dismissButton: .default(Text("OK"))
+            )
+        }
     }
 }
 

@@ -17,6 +17,8 @@ class ItemDetailViewModel: ObservableObject {
     @Published var item: Item?
     @Published var itemId = 0
     @Published var isLoading: Bool = false
+    @Published var errorMessage: String?
+    @Published var showError: Bool = false
 
     @MainActor
     func getItemById() async throws {
@@ -29,8 +31,23 @@ class ItemDetailViewModel: ObservableObject {
         do {
             let itemData = try await getItemByIdUseCase.execute(itemId: itemId)
             item = itemData
+        } catch let error as networkingError {
+            showError = true
+            switch error {
+            case .invalidURL:
+                errorMessage = "URL is invalid, please check your URL."
+            case .invalidResponse:
+                errorMessage = "Invalid response, please try again later."
+            case .invalidData:
+                errorMessage = "Data is invalid, please try again later."
+            case .networkFailure(let underlyingError):
+                errorMessage = "Network error: \(underlyingError.localizedDescription). Please check your internet connection."
+            case .noData:
+                errorMessage = "No data available, please try again later."
+            }
         } catch {
-            print("Error getting item by ID")
+            showError = true
+            errorMessage = "An unexpected error occurred: \(error.localizedDescription)."
         }
     }
 }

@@ -19,12 +19,16 @@ class GetCategoryByIdUseCaseImpl: GetCategoryByIdUseCase {
     }
 
     func execute(categoryId: Int) async throws -> Category {
-        let categories = try await categoriesRepository.getAllCategories()
+        do {
+            let categories = try await categoriesRepository.getAllCategories()
 
-        if let category = categories.first(where: { $0.id == categoryId }) {
-            return category
-        } else {
-            throw NSError(domain: "GetCategoryByIdUseCaseError", code: 404, userInfo: [NSLocalizedDescriptionKey: "Category not found"])
+            if let category = categories.first(where: { $0.id == categoryId }) {
+                return category
+            } else {
+                throw NSError(domain: "GetCategoryByIdUseCaseError", code: 404, userInfo: [NSLocalizedDescriptionKey: "Category not found"])
+            }
+        } catch {
+            throw error
         }
     }
 }
